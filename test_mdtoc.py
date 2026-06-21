@@ -25,3 +25,13 @@ def test_duplicate_headings_get_numbered_anchors():
     text = "## Setup\n## Setup\n"
     anchors = [a for _, _, a in mdtoc.headings(text)]
     assert anchors == ["setup", "setup-1"]
+
+
+def test_build_toc_indents_by_level():
+    items = [(2, "A", "a"), (3, "B", "b")]
+    assert mdtoc.build_toc(items) == "- [A](#a)\n  - [B](#b)"
+
+def test_splice_replaces_existing_block():
+    text = "# T\n\n%s\nold\n%s\n\n## A\n" % (mdtoc.START, mdtoc.END)
+    out = mdtoc.splice(text, "- [A](#a)")
+    assert "old" not in out and "- [A](#a)" in out
