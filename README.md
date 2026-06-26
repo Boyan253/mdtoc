@@ -32,3 +32,9 @@ never touched:
 
 If the markers are absent, the block is inserted just after the `# Title` line
 on the first run.
+
+## Anchors
+
+Anchors follow GitHub's rules: lowercase, punctuation dropped, spaces to
+dashes, and repeated headings get `-1`, `-2` suffixes. Headings inside fenced
+code blocks are ignored.
