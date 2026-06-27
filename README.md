@@ -38,3 +38,9 @@ on the first run.
 Anchors follow GitHub's rules: lowercase, punctuation dropped, spaces to
 dashes, and repeated headings get `-1`, `-2` suffixes. Headings inside fenced
 code blocks are ignored.
+
+## In CI
+
+```yaml
+- run: python mdtoc.py README.md --check
+```
