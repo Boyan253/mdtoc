@@ -44,3 +44,10 @@ code blocks are ignored.
 ```yaml
 - run: python mdtoc.py README.md --check
 ```
+
+## Tests
+
+```
+pip install pytest
+pytest
+```
