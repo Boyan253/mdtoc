@@ -5,6 +5,8 @@ import argparse
 import re
 import sys
 
+__version__ = "0.1.0"
+
 START = "<!-- mdtoc -->"
 END = "<!-- /mdtoc -->"
 HEADING = re.compile(r"^(#{1,6})\s+(.*?)\s*#*\s*$")
@@ -74,6 +76,8 @@ def splice(text, toc):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--version", action="version",
+                    version="%(prog)s " + __version__)
     ap.add_argument("markdown_file")
     ap.add_argument("--min-level", type=int, default=2)
     ap.add_argument("--max-level", type=int, default=4)
